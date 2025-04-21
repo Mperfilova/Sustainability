@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { FaUsers, FaCalendarAlt } from 'react-icons/fa';
+import { FaUsers, FaCalendarAlt, FaHome } from 'react-icons/fa';
 import Link from 'next/link';
 
 export default function Home() {
@@ -50,6 +50,13 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Main Title */}
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center text-[#00008B] mb-8">
+          ENVIRONMENT PROTECTION IN LATVIA
+        </h1>
       </div>
 
       {/* Hero Section */}

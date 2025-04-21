@@ -3,31 +3,25 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { FaHome, FaStar } from 'react-icons/fa';
 
 export default function OurIdea() {
   return (
-    <main className="min-h-screen bg-white py-16">
+    <main className="min-h-screen bg-white py-8">
       <div className="container mx-auto px-4">
-        <Link href="/" className="text-blue-500 hover:text-blue-600 mb-8 inline-block">
-          ← Back to Home
-        </Link>
-        
-        {/* Header with icons */}
-        <div className="flex justify-between items-center mb-12">
-          <div className="w-8 h-8">
-            <Link href="/">
-              <span className="text-2xl">🏠</span>
-            </Link>
+        <div className="flex justify-between items-center mb-8">
+          <Link href="/" className="text-gray-600 hover:text-gray-800">
+            <FaHome className="text-2xl" />
+          </Link>
+          <div className="bg-[#C8B6E2] px-8 py-3 rounded-lg shadow-md">
+            <h2 className="text-2xl font-bold text-center">OUR IDEA</h2>
           </div>
-          <div className="bg-[#FFE5B4] px-8 py-3 rounded-lg shadow-md">
-            <h1 className="text-2xl font-bold text-center">OUR IDEA</h1>
-          </div>
-          <div className="w-8 h-8">
-            <span className="text-2xl">🌱</span>
+          <div className="text-gray-600">
+            <FaStar className="text-2xl" />
           </div>
         </div>
 
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-4xl mx-auto mt-12">
           {/* Important Note - Styled as a sticky note */}
           <div className="sticky-note mb-4">
             <div className="bg-yellow-100 p-4 rounded-lg shadow-md transform rotate-2 max-w-xs ml-auto">
