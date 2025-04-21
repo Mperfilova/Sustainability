@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function HowToHelpPage() {
+export default function HowToHelpArticle() {
   return (
     <main className="min-h-screen relative">
       {/* Background Image */}
@@ -42,11 +42,11 @@ export default function HowToHelpPage() {
 
             <h2 className="text-2xl font-bold mt-12 mb-6">References</h2>
             <div className="pl-8 space-y-4">
-              <p className="text-sm">IPCC. (2019). <em>Special Report on the Ocean and Cryosphere in a Changing Climate</em>. Intergovernmental Panel on Climate Change.</p>
+              <p className="text-sm">Intergovernmental Panel on Climate Change. (2019). <em>Special Report on the Ocean and Cryosphere in a Changing Climate</em>.</p>
               
-              <p className="text-sm">Jambeck, J. R., Geyer, R., Wilcox, C., Siegler, T. R., Perryman, M., Andrady, A., ... & Law, K. L. (2015). Plastic waste inputs from land into the ocean. <em>Science</em>, 347(6223), 768–771.</p>
+              <p className="text-sm">Jambeck, J. R., Geyer, R., Wilcox, C., Siegler, T. R., Perryman, M., Andrady, A., Law, K. L. (2015). Plastic waste inputs from land into the ocean. <em>Science, 347</em>(6223), 768–771.</p>
               
-              <p className="text-sm">Marine Stewardship Council (MSC). (2023). <em>Certified sustainable seafood</em>. Retrieved from https://www.msc.org/</p>
+              <p className="text-sm">Marine Stewardship Council. (2023). <em>Certified sustainable seafood</em>. https://www.msc.org/</p>
             </div>
           </article>
         </div>

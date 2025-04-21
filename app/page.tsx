@@ -8,7 +8,7 @@ import Link from 'next/link';
 export default function Home() {
   const [showDate, setShowDate] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const investorsRef = useRef<HTMLElement>(null);
+  const infoBlocksRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,9 +25,9 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-  const scrollToInvestors = (e: React.MouseEvent) => {
+  const scrollToInfoBlocks = (e: React.MouseEvent) => {
     e.preventDefault();
-    investorsRef.current?.scrollIntoView({ behavior: 'smooth' });
+    infoBlocksRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -77,7 +77,7 @@ export default function Home() {
                 Join us in our mission to protect marine life and create a sustainable future for our oceans.
               </p>
               <button 
-                onClick={scrollToInvestors}
+                onClick={scrollToInfoBlocks}
                 className="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition"
               >
                 Learn More
@@ -86,9 +86,109 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* Information Blocks Section */}
+      <section ref={infoBlocksRef} className="py-16 bg-blue-100">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Link href="/our-idea" className="block h-full">
+              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow h-full flex flex-col">
+                <h3 className="text-xl font-bold mb-4">OUR IDEA</h3>
+                <p className="text-gray-600 flex-grow">
+                  We aim to create innovative solutions for ocean conservation and sustainable fishing practices.
+                </p>
+              </div>
+            </Link>
+            <Link href="/purpose" className="block h-full">
+              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow h-full flex flex-col">
+                <h3 className="text-xl font-bold mb-4">WHAT&apos;S THE PURPOSE OF THE SITE?</h3>
+                <p className="text-gray-600 flex-grow">
+                  To connect investors with sustainable ocean initiatives and raise awareness about marine conservation.
+                </p>
+              </div>
+            </Link>
+            <Link href="/how-to-help" className="block h-full">
+              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow h-full flex flex-col">
+                <h3 className="text-xl font-bold mb-4">HOW YOU CAN HELP?</h3>
+                <p className="text-gray-600 flex-grow">
+                  Invest in our projects, spread awareness, or contribute to our conservation efforts.
+                </p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Articles Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-12 text-center">ARTICLES ABOUT SUSTAINABILITY</h2>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="flex flex-col items-center">
+              <div className="relative h-[100px] w-[200px] mx-auto rounded-lg overflow-hidden mb-4">
+                <Image
+                  src="/images/environment.png"
+                  alt="Environment"
+                  width={200}
+                  height={100}
+                  style={{ objectFit: 'contain', width: '100%', height: '100%' }}
+                  className="bg-white"
+                />
+              </div>
+              <Link href="/environment">
+                <button className="bg-white border-2 border-black px-6 py-2">ENVIRONMENT</button>
+              </Link>
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="relative h-[100px] w-[200px] mx-auto rounded-lg overflow-hidden mb-4">
+                <Image
+                  src="/images/help.webp"
+                  alt="How to Help"
+                  width={200}
+                  height={100}
+                  style={{ objectFit: 'contain', width: '100%', height: '100%' }}
+                  className="bg-white"
+                />
+              </div>
+              <Link href="/how-to-help">
+                <button className="bg-white border-2 border-black px-6 py-2">HOW TO HELP?</button>
+              </Link>
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="relative h-[100px] w-[200px] mx-auto rounded-lg overflow-hidden mb-4">
+                <Image
+                  src="/images/sustainability.png"
+                  alt="Sustainability Word Cloud"
+                  width={200}
+                  height={100}
+                  style={{ objectFit: 'contain', width: '100%', height: '100%' }}
+                  className="bg-white"
+                />
+              </div>
+              <Link href="/sustainability">
+                <button className="bg-white border-2 border-black px-6 py-2">SUSTAINABILITY</button>
+              </Link>
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="relative h-[100px] w-[200px] mx-auto rounded-lg overflow-hidden mb-4">
+                <Image
+                  src="/images/latvia-flag.png"
+                  alt="Latvia Flag"
+                  width={200}
+                  height={100}
+                  style={{ objectFit: 'contain', width: '100%', height: '100%' }}
+                  className="bg-white"
+                />
+              </div>
+              <Link href="/about-latvia-article">
+                <button className="bg-white border-2 border-black px-6 py-2">ABOUT LATVIA</button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Investors Section */}
-      <section ref={investorsRef} className="py-16 bg-gradient-to-r from-blue-500 to-blue-600">
+      <section className="py-16 bg-gradient-to-r from-blue-500 to-blue-600">
         <div className="container mx-auto px-4">
           <Link href="/investors" className="block">
             <div className="bg-white rounded-xl shadow-2xl p-8 transform hover:scale-[1.02] transition-transform">
@@ -141,105 +241,6 @@ export default function Home() {
               </div>
             </div>
           </Link>
-        </div>
-      </section>
-
-      {/* Information Blocks Section */}
-      <section className="py-16 bg-blue-100">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Link href="/our-idea" className="block h-full">
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow h-full flex flex-col">
-                <h3 className="text-xl font-bold mb-4">OUR IDEA</h3>
-                <p className="text-gray-600 flex-grow">
-                  We aim to create innovative solutions for ocean conservation and sustainable fishing practices.
-                </p>
-              </div>
-            </Link>
-            <Link href="/purpose" className="block h-full">
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow h-full flex flex-col">
-                <h3 className="text-xl font-bold mb-4">WHAT&apos;S THE PURPOSE OF THE SITE?</h3>
-                <p className="text-gray-600 flex-grow">
-                  To connect investors with sustainable ocean initiatives and raise awareness about marine conservation.
-                </p>
-              </div>
-            </Link>
-            <Link href="/how-to-help" className="block h-full">
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow h-full flex flex-col">
-                <h3 className="text-xl font-bold mb-4">HOW YOU CAN HELP?</h3>
-                <p className="text-gray-600 flex-grow">
-                  Invest in our projects, spread awareness, or contribute to our conservation efforts.
-                </p>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Articles Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">ARTICLES ABOUT SUSTAINABILITY</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex flex-col items-center">
-              <div className="relative h-[100px] w-[200px] mx-auto rounded-lg overflow-hidden mb-4">
-                <Image
-                  src="/images/environment.png"
-                  alt="Environment"
-                  width={200}
-                  height={100}
-                  style={{ objectFit: 'contain', width: '100%', height: '100%' }}
-                  className="bg-white"
-                />
-              </div>
-              <button className="bg-white border-2 border-black px-6 py-2">ENVIORMENT</button>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="relative h-[100px] w-[200px] mx-auto rounded-lg overflow-hidden mb-4">
-                <Image
-                  src="/images/help.webp"
-                  alt="How to Help"
-                  width={200}
-                  height={100}
-                  style={{ objectFit: 'contain', width: '100%', height: '100%' }}
-                  className="bg-white"
-                />
-              </div>
-              <button className="bg-white border-2 border-black px-6 py-2">HOW TO HELP?</button>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="relative h-[100px] w-[200px] mx-auto rounded-lg overflow-hidden mb-4">
-                <Image
-                  src="/images/sustainability.png"
-                  alt="Sustainability Word Cloud"
-                  width={200}
-                  height={100}
-                  style={{ objectFit: 'contain', width: '100%', height: '100%' }}
-                  className="bg-white"
-                />
-              </div>
-              <button className="bg-white border-2 border-black px-6 py-2">SUSTAINABILITY</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About Latvia Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center">
-            <div className="relative h-[100px] w-[200px] mx-auto rounded-lg overflow-hidden mb-4">
-              <Image
-                src="/images/latvia-flag.png"
-                alt="Latvia Flag"
-                width={200}
-                height={100}
-                style={{ objectFit: 'contain', width: '100%', height: '100%' }}
-                className="bg-white"
-              />
-            </div>
-            <button className="bg-white border-2 border-black px-6 py-2">ABOUT LATVIA</button>
-          </div>
         </div>
       </section>
 
